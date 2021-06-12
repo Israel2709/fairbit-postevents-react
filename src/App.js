@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import IdcNavbar from './Components/IdcNavbar'
+import IdcHero from './Components/IdcHero'
+import IdcSlider from './Components/IdcSlider'
+import IdcPresentations from './Components/IdcPresentations'
+import IdcVideos from './Components/IdcVideos'
+import IdcSpeakers from './Components/IdcSpeakers'
+import IdcFooter from './Components/IdcFooter'
+
+import {
+  Container,
+  Row,
+  Col
+} from 'reactstrap'
+
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <IdcNavbar/>
+      <IdcHero />
+      <IdcSlider />
+      <IdcPresentations />
+      <IdcVideos />
+      <IdcSpeakers />
+      <IdcFooter />
     </div>
   );
 }

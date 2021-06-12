@@ -1,0 +1,8 @@
+.navbar-collapse{
+    flex-basis: unset;
+    flex-grow: 0;
+    &.show{
+        flex-basis: 100%;
+        flex-grow: 1;
+    }
+}
