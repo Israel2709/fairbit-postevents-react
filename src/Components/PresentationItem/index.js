@@ -1,21 +1,30 @@
 import React from 'react';
+import './style.scss'
+import {
+    Col
+} from 'reactstrap'
 
-const PresentationItem = () => {
+const PresentationItem = ( props ) => {
+    const { cover, document, title } = props.presentationData
+    const { speakerData } = props 
     return (
-        <div className="card">
-            <div className="card-header">
-                <img src="" alt="" />
-                <div className="speaker-data">
-                    <h2>Speaker Name</h2>
-                    <h3>Speaker Business</h3>
+        <Col xs="12" md="5">
+            <div className="card presentation-card">
+                <div className="card-header d-flex bg-white align-items-center">
+                    <img src={ speakerData && speakerData.avatar } alt="" />
+                    <div className="speaker-data">
+                        <h2>{ speakerData && speakerData.name }</h2>
+                        <h3 className="text-muted">{ speakerData && speakerData.job }</h3>
+                    </div>
+                </div>
+                <div className="card-cover" style={{ backgroundImage: `url(${cover})`}}></div>
+                <h3 className="card-title p-3">{ title }</h3>
+                <div className="card-footer bg-white d-flex">
+                    <a href={ document }>descargar</a>
+                    <a href={ document }>ver presentación</a>
                 </div>
             </div>
-            <div className="card-cover"></div>
-            <h3 className="card-title">title</h3>
-            <div className="card-footer">
-                <a href="">descargar</a><a href="">ver presentación</a>
-            </div>
-        </div>
+        </Col>
     );
 };
 

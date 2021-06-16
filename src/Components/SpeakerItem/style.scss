@@ -1,0 +1,17 @@
+.speaker-item{
+    min-height: 200px;
+    img{
+        width:70%;
+        border-radius:100%;
+        margin-bottom:1rem;
+    }
+    h4,h5{
+        font-size:.75rem;
+    }
+    .social-wrapper{
+        margin-top: auto;
+        a{
+            color:gray;
+        }
+    }
+}

@@ -10,6 +10,9 @@ import {
     NavLink,
 } from 'reactstrap';
 
+import idcLogo from '../../assets/IDC_TRANSTELCO_PostEvento.png'
+import logoDigital from '../../assets/IDC_TRANSTELCO_PostEvento_TransLogo.png'
+
 const IdcNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
@@ -17,8 +20,8 @@ const IdcNavbar = () => {
     return (
         <div>
             <Navbar color="light" light expand="md" className="d-flex justify-content-between fixed-top">
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
+                <NavbarBrand href="/"><img src={idcLogo} alt="" /></NavbarBrand>
+                <NavbarBrand href="/"><img src={logoDigital} alt="" /></NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>

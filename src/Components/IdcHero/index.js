@@ -1,4 +1,7 @@
 import React from 'react';
+import './style.scss'
+
+import heroBg from '../../assets/IDC_TRANSTELCO_PostEvento_MGweb.png'
 
 import{
     Container,
@@ -6,14 +9,15 @@ import{
     Col
 } from 'reactstrap'
 
-const IdcHero = () => {
+const IdcHero = ( props ) => {
+    const { title, abstract, masterGraphic } = props
     return (
-        <div className="idc-hero-wrapper">
-            <Container>
-                <Row>
-                    <Col xs='12' md={{ size:6, offset:6 }}>
-                        <h1>Lorem, ipsum dolor.</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam voluptate repudiandae quos nam doloribus eligendi labore accusantium sint nobis fugit!</p>
+        <div className="idc-hero-wrapper" style={{ backgroundImage:`url(${ heroBg })`}}>
+            <Container className="full-height">
+                <Row className="h-100">
+                    <Col xs='12' md={{ size:6, offset:6 }} className="d-flex flex-column justify-content-center text-white">
+                        <h1>{ title }</h1>
+                        <p>{ abstract }</p>
                     </Col>
                 </Row>
             </Container>
