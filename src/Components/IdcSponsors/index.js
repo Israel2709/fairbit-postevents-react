@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from "@hookform/error-message";
+import './style.scss'
 import firebase from '../../lib/firebase'
 import {
     Container,
@@ -163,10 +164,10 @@ const IdcSponsors = (props) => {
                     }
                 </ModalBody>
             </Modal>
-            <Container className="mt-3">
+            <Container className="mt-5">
                 <Row>
                     <Col xs="12" md="6" className="mb-3">
-                        <h2 className="text-center">&nbsp;</h2>
+                        {/*<h2 className="text-center">&nbsp;</h2>*/}
                         <Card>
                             <CardBody className="d-flex justify-content-center align-items-center">
                                 <img src='https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fsponsors%2FIDC_TRANSTELCO_PostEvento_SponsorCard.svg?alt=media&token=fc8e74ea-bfdd-48e2-ae3f-fe54c07e9225' alt="" />
@@ -182,7 +183,7 @@ const IdcSponsors = (props) => {
                         </Card>
                     </Col>
                     <Col xs="12" md="6">
-                        <h2 className="text-center">Patrocinador Premium</h2>
+                        {/*<h2 className="text-center">Patrocinador Premium</h2>*/}
                         <Card>
                             <CardBody>
                                 <Button className="mx-auto d-block mb-3" type="button" onClick={toggle}>Ser contactado</Button>
@@ -191,9 +192,9 @@ const IdcSponsors = (props) => {
                                 </CardTitle>
                                 <CardText className="text-center mb-3">{sponsorsList ? sponsorsList['sponsor1'].boilerplate : "lorem"}</CardText>
                                 <div className="social-wrapper d-flex justify-content-center">
-                                    <a href="https://www.facebook.com/IDCLatinAmerica/" target="_blank" className="fab fa-facebook-square mx-2 text-main-color"></a>
-                                    <a href="https://twitter.com/IDCLatin" target="_blank" className="fab fa-twitter-square mx-2 text-main-color"></a>
-                                    <a href="https://www.linkedin.com/company/idc-latin-america/" target="_blank" className="fab fa-linkedin mx-2 text-main-color"></a>
+                                    {/*<a href="https://www.facebook.com/IDCLatinAmerica/" target="_blank" className="fab fa-facebook-square mx-2 text-main-color"></a>*/}
+                                    <a href="https://twitter.com/transtelco" target="_blank" className="fab fa-twitter-square mx-2 text-main-color"></a>
+                                    <a href="https://www.linkedin.com/company/transtelco/mycompany/" target="_blank" className="fab fa-linkedin mx-2 text-main-color"></a>
                                 </div>
                             </CardBody>
                         </Card>

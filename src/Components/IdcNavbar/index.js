@@ -23,7 +23,7 @@ const IdcNavbar = () => {
         <div>
             <Navbar color="white" light expand="md" className="d-flex justify-content-between fixed-top px-3">
                 <NavbarBrand href="/"><img src={idcLogo} alt="" /></NavbarBrand>
-                <NavbarBrand href="/"><img src={logoDigital} alt="" /></NavbarBrand>
+                {/*<NavbarBrand href="/"><img src={logoDigital} alt="" /></NavbarBrand>*/}
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>
