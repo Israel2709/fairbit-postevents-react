@@ -2,8 +2,15 @@
     height:calc( 70vh - 56px);
     background-size:cover;
     background-position: left center;
+    background-image:url("https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fbusiness%2Ftranstelco%2Fmg%2FIDC_TRANSTELCO_PostEvento_MGresponsive.png?alt=media&token=f98e6afe-1410-4a72-9997-5579858dcb0c")
 }
 
 .full-height{
     height:calc( 70vh - 56px);
+}
+
+@media only screen and ( min-width: 768px ){
+    .idc-hero-wrapper{
+        background-image:url("https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fbusiness%2Ftranstelco%2Fmg%2FIDC_TRANSTELCO_PostEvento_MGweb.png?alt=media&token=af221379-818b-4397-9de4-bb6db0841135")
+    }
 }

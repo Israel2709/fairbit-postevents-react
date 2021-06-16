@@ -165,7 +165,7 @@ const IdcSponsors = (props) => {
             </Modal>
             <Container className="mt-3">
                 <Row>
-                    <Col xs="12" md="6">
+                    <Col xs="12" md="6" className="mb-3">
                         <h2 className="text-center">&nbsp;</h2>
                         <Card>
                             <CardBody className="d-flex justify-content-center align-items-center">

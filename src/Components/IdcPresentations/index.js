@@ -127,9 +127,9 @@ const IdcPresentations = (props) => {
                 </ModalBody>
             </Modal>
             <Col xs="12">
-                <h2 id="presentations" className="text-center my-4">Presentaciones</h2>
+                <h2 id="presentations" className="text-center my-3">Presentaciones</h2>
                 <Row className="presentations-wrapper">
-                    <Col md="1">&nbsp;</Col>
+                    <Col md="1"></Col>
                     {
                         (presentations && speakersList) &&
                         presentations.map(presentation => {
@@ -142,7 +142,7 @@ const IdcPresentations = (props) => {
                         })
                     }
 
-                    <Col md="1">&nbsp;</Col>
+                    <Col md="1"></Col>
                 </Row>
             </Col>
         </>

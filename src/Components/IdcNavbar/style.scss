@@ -15,3 +15,17 @@ $main-color: #021C4E;
         border-bottom:2px solid $main-color
     }
 }
+
+.navbar-brand{
+    img{
+        height:25px
+    }
+}
+
+@media only screen and ( min-width: 768px ){
+    .navbar-brand{
+        img{
+            height: unset;
+        }
+    }
+}
