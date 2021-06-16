@@ -10,6 +10,8 @@ import {
     NavLink,
 } from 'reactstrap';
 
+import { Link } from 'react-scroll'
+
 import idcLogo from '../../assets/IDC_TRANSTELCO_PostEvento.png'
 import logoDigital from '../../assets/IDC_TRANSTELCO_PostEvento_TransLogo.png'
 
@@ -19,20 +21,22 @@ const IdcNavbar = () => {
 
     return (
         <div>
-            <Navbar color="light" light expand="md" className="d-flex justify-content-between fixed-top">
+            <Navbar color="white"  expand="md" className="d-flex justify-content-between fixed-top">
                 <NavbarBrand href="/"><img src={idcLogo} alt="" /></NavbarBrand>
                 <NavbarBrand href="/"><img src={logoDigital} alt="" /></NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink href="/components/">HOME</NavLink>
+                            <Link to="home" className="nav-link" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>HOME</Link>
                         </NavItem>
+                        {
+                            /*<NavItem>
+                            <Link to="videos" spy={true} smooth={true} offset={50} duration={500} delay={0} offset={-66}>VIDEOS</Link>
+                            </NavItem>*/
+                        }
                         <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">VIDEOS</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">PRESENTACIONES</NavLink>
+                            <Link to="presentations" className="nav-link" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>PRESENTACIONES</Link>
                         </NavItem>
                     </Nav>
                 </Collapse>

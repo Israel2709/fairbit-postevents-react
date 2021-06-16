@@ -6,7 +6,7 @@ import {
 
 const PresentationItem = ( props ) => {
     const { cover, document, title } = props.presentationData
-    const { speakerData } = props 
+    const { speakerData, handler } = props 
     return (
         <Col xs="12" md="5">
             <div className="card presentation-card">
@@ -20,8 +20,8 @@ const PresentationItem = ( props ) => {
                 <div className="card-cover" style={{ backgroundImage: `url(${cover})`}}></div>
                 <h3 className="card-title p-3">{ title }</h3>
                 <div className="card-footer bg-white d-flex">
-                    <a href={ document }>descargar</a>
-                    <a href={ document }>ver presentación</a>
+                    <a onClick={ handler } className="text-primary">descargar</a>
+                    <a onClick={ handler } className="text-primary">ver presentación</a>
                 </div>
             </div>
         </Col>

@@ -54,7 +54,9 @@ function App() {
             (presentations && speakersList) && <IdcPresentations presentations={ presentations } speakersList = {speakersList}/>
           }
           
-          <IdcVideos />
+          {
+            eventData.videos && <IdcVideos />
+          }
           <IdcSpeakers speakers={ speakers }/>
         </Row>
       </Container>

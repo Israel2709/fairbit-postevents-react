@@ -1,8 +1,17 @@
+$main-color: #021C4E;
+
 .navbar-collapse{
     flex-basis: unset;
     flex-grow: 0;
     &.show{
         flex-basis: 100%;
         flex-grow: 1;
+    }
+}
+
+.nav-link{
+    color:#333;
+    &.active{
+        border-bottom:2px solid $main-color
     }
 }
