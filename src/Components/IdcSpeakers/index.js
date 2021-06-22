@@ -7,8 +7,9 @@ import{
     Col
 } from 'reactstrap'
 
-const IdcSpeakers = () => {
+const IdcSpeakers = (props) => {
     const [speakersList, setSpeakersList ] = useState( null )
+    const {speakers} = props
     
     useEffect(() => {
         const database = firebase.database();
@@ -24,7 +25,7 @@ const IdcSpeakers = () => {
             <h2 class="py-4 text-center">Programa / Speakers</h2>
             <Row className="speakers-wrapper">
                 {
-                    speakersList && Object.values( speakersList ).map( speaker => <SpeakerItem speakerData = {speaker}/>)
+                    ( speakersList && speakers ) && Object.values( speakers ).map( speaker => <SpeakerItem speakerData = {speakersList[speaker]}/>)
                 }  
             </Row>
         </Col>

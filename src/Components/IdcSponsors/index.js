@@ -148,7 +148,7 @@ const IdcSponsors = (props) => {
                                     <div className="input-group-prepend ">
                                         <div className="input-group-text bg-main-color text-white">Patrocinador :</div>
                                     </div>
-                                    <input type="text" className="form-control" id="" placeholder="" value="TRANSTELCO" name="text" readonly disabled />
+                                    { sponsors[0] && <input type="text" className="form-control" id="" placeholder="" value={sponsors[0].name.toUpperCase()} name="text" readonly disabled />}
                                 </div>
 
 
