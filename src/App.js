@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import firebase from './lib/firebase'
+import parse from 'html-react-parser'
 
 import IdcNavbar from './Components/IdcNavbar'
 import IdcHero from './Components/IdcHero'
@@ -19,35 +20,42 @@ import {
 import './App.scss';
 
 function App() {
-  const [eventData, setEventData] = useState({})
+  const [eventData, setEventData] = useState({
+    title:"",
+    abstract:""
+  })
   const [speakersList, setSpeakersList] = useState({})
+  const [sponsorsList, setSponsorsList] = useState({})
 
   useEffect( () => {
     const database = firebase.database();
-    console.log( database )
-    const eventsRef = database.ref('/events')
+    const eventsRef = database.ref('/events/equinix')
     eventsRef.on('value', snapshot => {
-      console.log(snapshot.val())
-      setEventData( snapshot.val().transtelco )
+      setEventData( snapshot.val() )
     })
     const speakersRef = database.ref('/speakers')
     speakersRef.on('value', snapshot => {
-      console.log(snapshot.val())
       setSpeakersList( snapshot.val() )
+    })
+    const sponsorsRef = database.ref('/sponsors')
+    sponsorsRef.on('value', snapshot => {
+      setSponsorsList( snapshot.val() )
     })
   },[])
   
   const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations } = eventData
+  console.log( sponsors )
+  const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
     <div className="App">
       <IdcNavbar />
       <IdcHero
         title={title}
-        abstract={abstract}
+        abstract={ parse( abstract )}
         masterGraphic={masterGraphic}
       />
-      <IdcSlider sponsors={ sponsors } hasSlider={ hasSlider }/>
-      <IdcSponsors sponsors={ sponsors }  type={ type }/>
+      { (sponsors && sponsorsList) && <IdcSlider sponsors={ getSponsors(sponsors) } hasSlider={ hasSlider }/> }
+      { (sponsors && sponsorsList) && <IdcSponsors sponsors={ getSponsors(sponsors) }  type={ type }/> }
       <Container>
         <Row>
           {

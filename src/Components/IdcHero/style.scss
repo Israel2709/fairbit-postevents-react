@@ -1,8 +1,8 @@
 .idc-hero-wrapper{
-    height:calc( 70vh - 56px);
+    height:550px;
     background-size:cover;
     background-position: left center;
-    background-image:url("https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fbusiness%2Ftranstelco%2Fmg%2FIDC_TRANSTELCO_PostEvento_MGresponsive.png?alt=media&token=bec082cf-4e75-47cf-a898-7fb3cd95dd6a")
+    background-image:url("https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fbusiness%2Fequinix%2Fmg%2FIDC_equinix_PostEvento_MGresponsive.svg?alt=media&token=867df8bc-0638-45f6-9608-5ed7f0f84ff6")
 }
 
 .full-height{
@@ -11,6 +11,7 @@
 
 @media only screen and ( min-width: 768px ){
     .idc-hero-wrapper{
-        background-image:url("https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fbusiness%2Ftranstelco%2Fmg%2FIDC_TRANSTELCO_PostEvento_MGweb.png?alt=media&token=af221379-818b-4397-9de4-bb6db0841135")
+        height: 400px;
+        background-image:url("https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fbusiness%2Fequinix%2Fmg%2FIDC_equinix_PostEvento_MGweb.svg?alt=media&token=d18f0fe8-e4c6-4b48-8ca8-656b57bf1218")
     }
 }
