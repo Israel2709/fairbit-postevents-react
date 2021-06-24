@@ -15,10 +15,10 @@ import { Link } from 'react-scroll'
 import idcLogo from '../../assets/IDC_TRANSTELCO_PostEvento.png'
 import logoDigital from '../../assets/IDC_TRANSTELCO_PostEvento_TransLogo.png'
 
-const IdcNavbar = () => {
+const IdcNavbar = ( props ) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-
+    const { hasVideo } = props
     return (
         <div>
             <Navbar color="white" light expand="md" className="d-flex justify-content-between fixed-top px-3">
@@ -31,9 +31,9 @@ const IdcNavbar = () => {
                             <Link to="home" className="nav-link" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>HOME</Link>
                         </NavItem>
                         {
-                            /*<NavItem>
-                            <Link to="videos" spy={true} smooth={true} offset={50} duration={500} delay={0} offset={-66}>VIDEOS</Link>
-                            </NavItem>*/
+                            hasVideo && (<NavItem>
+                            <Link to="videos" className="nav-link" spy={true} smooth={true} offset={50} duration={500} delay={0} offset={-66}>VIDEOS</Link>
+                            </NavItem>)
                         }
                         <NavItem>
                             <Link to="presentations" className="nav-link" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>PRESENTACIONES</Link>

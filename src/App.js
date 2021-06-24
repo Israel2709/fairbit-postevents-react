@@ -48,7 +48,9 @@ function App() {
   const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
     <div className="App">
-      <IdcNavbar />
+      <IdcNavbar 
+        hasVideo = {eventData.video ? true : false}
+      />
       <IdcHero
         title={title}
         abstract={ parse( abstract )}
@@ -63,7 +65,7 @@ function App() {
           }
           
           {
-            eventData.videos && <IdcVideos />
+            eventData.video && <IdcVideos videoList={eventData.video} speakersList={ speakersList}/>
           }
           <IdcSpeakers speakers={ speakers }/>
         </Row>
