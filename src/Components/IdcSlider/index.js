@@ -11,6 +11,7 @@ class IdcSlider extends Component {
   }
 
   componentDidMount() {
+    console.log( this.props.sponsors )
     this.setState({
       nav1: this.slider1,
       nav2: this.slider2
@@ -18,68 +19,47 @@ class IdcSlider extends Component {
   }
 
   render() {
-    const { hasSlider } = this.props
+    const { hasSlider,sponsors } = this.props
     return (
-      
-      <div>
+      <div class="col-12">
         {
-          hasSlider && (
-            <div>
+          ( hasSlider && sponsors ) && (
+            <>
               <Slider
                 asNavFor={this.state.nav2}
                 ref={slider => (this.slider1 = slider)}
+                slidesToShow={5}
               >
-                <div>
-                  <h3>1</h3>
-                </div>
-                <div>
-                  <h3>2</h3>
-                </div>
-                <div>
-                  <h3>3</h3>
-                </div>
-                <div>
-                  <h3>4</h3>
-                </div>
-                <div>
-                  <h3>5</h3>
-                </div>
-                <div>
-                  <h3>6</h3>
-                </div>
+                {sponsors.map(sponsor => {
+                  return (
+                    <div className="p-3">
+                      <div className="card">
+                        <div className="card-body p-3 mx-2 d-flex justify-content-center align-items-center"><img src={ sponsor ? sponsor.ico : ""} alt="" /></div>
+                      </div>
+                    </div>
+                  )
+                })}
               </Slider>
-              <h4>Second Slider</h4>
               <Slider
                 asNavFor={this.state.nav1}
                 ref={slider => (this.slider2 = slider)}
-                slidesToShow={3}
+                slidesToShow={1}
                 swipeToSlide={true}
                 focusOnSelect={true}
               >
-                <div>
-                  <h3>1</h3>
-                </div>
-                <div>
-                  <h3>2</h3>
-                </div>
-                <div>
-                  <h3>3</h3>
-                </div>
-                <div>
-                  <h3>4</h3>
-                </div>
-                <div>
-                  <h3>5</h3>
-                </div>
-                <div>
-                  <h3>6</h3>
-                </div>
+                {sponsors.map(sponsor => {
+                  return (
+                    <div className="p-3">
+                      <div className="card">
+                        <div className="card-body p-3 mx-2 d-flex justify-content-center align-items-center"><img src={ sponsor ? sponsor.ico : ""} alt="" /></div>
+                      </div>
+                    </div>
+                  )
+                })}
               </Slider>
-            </div>
-
+            </>
           )
         }
-
       </div>
     )
   }

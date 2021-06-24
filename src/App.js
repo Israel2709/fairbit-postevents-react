@@ -54,8 +54,11 @@ function App() {
         abstract={ parse( abstract )}
         masterGraphic={masterGraphic}
       />
-      { (sponsors && sponsorsList) && <IdcSlider sponsors={ getSponsors(sponsors) } hasSlider={ hasSlider }/> }
-      { (sponsors && sponsorsList) && <IdcSponsors sponsors={ getSponsors(sponsors) }  type={ type }/> }
+      <Container fluid>
+        <Row>
+          { (sponsors && sponsorsList) && <IdcSlider sponsors={ getSponsors(sponsors) } hasSlider={ hasSlider }/> }
+        </Row>
+      </Container>
       <Container>
         <Row>
           {
