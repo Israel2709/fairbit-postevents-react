@@ -128,8 +128,7 @@ const IdcPresentations = (props) => {
             </Modal>
             <Col xs="12">
                 <h2 id="presentations" className="text-center my-3">Presentaciones</h2>
-                <Row className="presentations-wrapper">
-                    <Col md="1"></Col>
+                <Row className="presentations-wrapper justify-content-center">
                     {
                         (presentations && speakersList) &&
                         presentations.map(presentation => {
@@ -141,8 +140,6 @@ const IdcPresentations = (props) => {
 
                         })
                     }
-
-                    <Col md="1"></Col>
                 </Row>
             </Col>
         </>

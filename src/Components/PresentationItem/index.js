@@ -9,7 +9,7 @@ const PresentationItem = ( props ) => {
     const { speakerData, handler } = props 
     return (
         <Col xs="12" md="5">
-            <div className="card presentation-card">
+            <div className="card presentation-card mb-4">
                 <div className="card-header d-flex bg-white align-items-center">
                     <img src={ speakerData && speakerData.avatar } alt="" />
                     <div className="speaker-data">

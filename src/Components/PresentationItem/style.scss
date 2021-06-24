@@ -1,5 +1,6 @@
 @import '../../assets/colors.scss';
 .presentation-card{
+    min-height:390px;
     .card-header{
         img{
             border-radius:100%;
@@ -27,8 +28,12 @@
     }
     .card-title{
         font-size:1rem;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
     }
     .card-footer{
+        margin-top: auto;
         a{
             margin-right: 1rem;
             font-size: .825rem;
