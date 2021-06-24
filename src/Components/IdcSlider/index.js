@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SponsorModal from '../SponsorModal/index'
+import './style.scss'
 import {
   Container,
   Row,
@@ -17,7 +19,14 @@ class IdcSlider extends Component {
     this.state = {
       nav1: null,
       nav2: null,
+      modal:false,
+      sponsorName:""
     }
+    this.setModal = this.setModal.bind( this )
+  }
+
+  setModal(){
+    this.setState({modal: !this.state.modal})
   }
 
   componentDidMount() {
@@ -31,12 +40,20 @@ class IdcSlider extends Component {
   render() {
     const { hasSlider, sponsors } = this.props
     const iconClasses = {
-      "facebook": "fab fa-facebook-square mx-2 text-main-color",
-      "twitter": "fab fa-twitter-square mx-2 text-main-color",
-      "linkedin": "fab fa-linkedin mx-2 text-main-color",
-      "web": "fas fa-globe mx-2 text-main-color"
+      "facebook":"fab fa-facebook-square mx-2 text-main-color",
+      "twitter":"fab fa-twitter-square mx-2 text-main-color",
+      "linkedin":"fab fa-linkedin mx-2 text-main-color",
+      "web":"fas fa-globe mx-2 text-main-color",
+      "video":"fab fa-youtube mx-2 text-main-color",
+      "info":"fas fa-file-alt mx-2 text-main-color"
     }
     return (
+      <>
+      <SponsorModal 
+        modal={this.state.modal} 
+        handler={this.setModal}
+        sponsorName={this.state.sponsorName}
+      />
       <div class="col-12">
         {
           (hasSlider && sponsors) && (
@@ -46,12 +63,15 @@ class IdcSlider extends Component {
                 ref={slider => (this.slider1 = slider)}
                 slidesToShow={5}
                 focusOnSelect={true}
+                slidesToScroll= {1}
+                className="control"
+                pauseOnHover= {true}
               >
                 {sponsors.map(sponsor => {
                   return (
-                    <div className="p-3">
+                    <div className="icon-wrapper">
                       <div className="card">
-                        <div className="card-body p-3 mx-2 d-flex justify-content-center align-items-center"><img src={sponsor ? sponsor.ico : ""} alt="" /></div>
+                        <div className="card-body d-flex justify-content-center align-items-center"><img src={sponsor ? sponsor.ico : ""} alt="" /></div>
                       </div>
                     </div>
                   )
@@ -63,14 +83,18 @@ class IdcSlider extends Component {
                 slidesToShow={1}
                 swipeToSlide={true}
                 focusOnSelect={true}
+                autoplay= {true}
+                speed= {1000}
+                autoplaySpeed={5000}
+                pauseOnHover= {true}
               >
                 {sponsors.map(sponsor => {
                   return (
                     <>
                     <Row>
-                      <Col xs="12" md="6" className="mb-3">
+                      <Col xs="12" md="6">
                         {/*<h2 className="text-center">&nbsp;</h2>*/}
-                        <Card className="icon-card">
+                        <Card className="sponsor">
                           <CardBody className="d-flex justify-content-center align-items-center">
                             {sponsor && <img src={sponsor.logo} alt="" />}
                           </CardBody>
@@ -86,9 +110,11 @@ class IdcSlider extends Component {
                       </Col>
                       <Col xs="12" md="6" className="pr-3">
                         {/*<h2 className="text-center">Patrocinador Premium</h2>*/}
-                        <Card>
+                        <Card className="sponsor-data">
                           <CardBody>
-                            <Button className="mx-auto d-block mb-3" type="button">Ser contactado</Button>
+                            <Button className="mx-auto d-block mb-3" type="button" onClick={() => {
+                              this.setState({ sponsorName: sponsor.name, modal:true })
+                            }}>Você quer ser contatado?</Button>
                             {sponsor && <CardTitle tag="h3" className="text-center text-uppercase mb-3">
                               {sponsor.name}
                             </CardTitle>}
@@ -112,6 +138,7 @@ class IdcSlider extends Component {
           )
         }
       </div>
+      </>
     )
   }
 }

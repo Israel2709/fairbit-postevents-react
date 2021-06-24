@@ -53,7 +53,9 @@ const IdcSponsors = (props) => {
         "facebook":"fab fa-facebook-square mx-2 text-main-color",
         "twitter":"fab fa-twitter-square mx-2 text-main-color",
         "linkedin":"fab fa-linkedin mx-2 text-main-color",
-        "web":"fas fa-globe mx-2 text-main-color"
+        "web":"fas fa-globe mx-2 text-main-color",
+        "video":"fab fa-youtube mx-2 text-main-color",
+        "info":"fas fa-file-alt mx-2 text-main-color"
     }
 
     return (
