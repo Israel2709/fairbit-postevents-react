@@ -18,6 +18,8 @@ import {
     ModalFooter
 } from 'reactstrap'
 
+import sponsorLogo from '../../assets/IDC_TRANSTELCO_PostEvento_SponsorCard.svg'
+
 const IdcSponsors = (props) => {
     const [sponsorsList, setSponsorsList] = useState(null)
     const [userData, setuserData] = useState({})
@@ -46,18 +48,16 @@ const IdcSponsors = (props) => {
         setuserData({ ...userData, [property]: value })
     }
 
+    useEffect(async () => {
+        const database = await firebase.database();
+        console.log(database)
+        const sponsorsRef = database.ref('/sponsors')
+        sponsorsRef.on('value', snapshot => {
+            console.log(snapshot.val())
+            setSponsorsList(snapshot.val())
+        })
+    }, [])
     const { sponsors, type } = props
-    console.log( sponsors )
-
-    const iconClasses = {
-        "facebook":"fab fa-facebook-square mx-2 text-main-color",
-        "twitter":"fab fa-twitter-square mx-2 text-main-color",
-        "linkedin":"fab fa-linkedin mx-2 text-main-color",
-        "web":"fas fa-globe mx-2 text-main-color",
-        "video":"fab fa-youtube mx-2 text-main-color",
-        "info":"fas fa-file-alt mx-2 text-main-color"
-    }
-
     return (
         <>
             <Modal isOpen={modal} toggle={toggle}>
@@ -150,7 +150,7 @@ const IdcSponsors = (props) => {
                                     <div className="input-group-prepend ">
                                         <div className="input-group-text bg-main-color text-white">Patrocinador :</div>
                                     </div>
-                                    { sponsors[0] && <input type="text" className="form-control" id="" placeholder="" value={sponsors[0].name.toUpperCase()} name="text" readonly disabled />}
+                                    <input type="text" className="form-control" id="" placeholder="" value="TRANSTELCO" name="text" readonly disabled />
                                 </div>
 
 
@@ -170,7 +170,7 @@ const IdcSponsors = (props) => {
                         {/*<h2 className="text-center">&nbsp;</h2>*/}
                         <Card>
                             <CardBody className="d-flex justify-content-center align-items-center">
-                                { sponsors[0] && <img src={ sponsors[0].logo } alt="" /> }
+                                <img src='https://firebasestorage.googleapis.com/v0/b/idc-latam.appspot.com/o/events%2Fsponsors%2FIDC_TRANSTELCO_PostEvento_SponsorCard.svg?alt=media&token=fc8e74ea-bfdd-48e2-ae3f-fe54c07e9225' alt="" />
                             </CardBody>
                             {/*
                             <div class="links-wrapper">
@@ -187,16 +187,14 @@ const IdcSponsors = (props) => {
                         <Card>
                             <CardBody>
                                 <Button className="mx-auto d-block mb-3" type="button" onClick={toggle}>Ser contactado</Button>
-                                {sponsors[0] && <CardTitle tag="h3" className="text-center text-uppercase mb-3">
-                                    { sponsors[0].name }
-                                </CardTitle>}
-                                { sponsors[0] && <CardText className="text-center mb-3">{ sponsors[0].boilerplate }</CardText>}
+                                <CardTitle tag="h3" className="text-center text-uppercase mb-3">
+                                    {sponsorsList ? sponsorsList['sponsor1'].name : "lorem"}
+                                </CardTitle>
+                                <CardText className="text-center mb-3">{sponsorsList ? sponsorsList['sponsor1'].boilerplate : "lorem"}</CardText>
                                 <div className="social-wrapper d-flex justify-content-center">
-                                    {
-                                        sponsors[0] && Object.keys(sponsors[0].links).map( link => {
-                                            return <a href={sponsors[0].links[link]} target="_blank" className={iconClasses[link]}></a>
-                                        })
-                                    }
+                                    {/*<a href="https://www.facebook.com/IDCLatinAmerica/" target="_blank" className="fab fa-facebook-square mx-2 text-main-color"></a>*/}
+                                    <a href="https://twitter.com/transtelco" target="_blank" className="fab fa-twitter-square mx-2 text-main-color"></a>
+                                    <a href="https://www.linkedin.com/company/transtelco/mycompany/" target="_blank" className="fab fa-linkedin mx-2 text-main-color"></a>
                                 </div>
                             </CardBody>
                         </Card>

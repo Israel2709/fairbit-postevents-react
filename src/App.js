@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import firebase from './lib/firebase'
-import parse from 'html-react-parser'
 
 import IdcNavbar from './Components/IdcNavbar'
 import IdcHero from './Components/IdcHero'
@@ -20,45 +19,35 @@ import {
 import './App.scss';
 
 function App() {
-  const [eventData, setEventData] = useState({
-    title:"",
-    abstract:""
-  })
+  const [eventData, setEventData] = useState({})
   const [speakersList, setSpeakersList] = useState({})
-  const [sponsorsList, setSponsorsList] = useState({})
 
   useEffect( () => {
     const database = firebase.database();
-    const eventsRef = database.ref('/events/dynamicBrazil')
+    console.log( database )
+    const eventsRef = database.ref('/events')
     eventsRef.on('value', snapshot => {
-      setEventData( snapshot.val() )
+      console.log(snapshot.val())
+      setEventData( snapshot.val().transtelco )
     })
     const speakersRef = database.ref('/speakers')
     speakersRef.on('value', snapshot => {
+      console.log(snapshot.val())
       setSpeakersList( snapshot.val() )
-    })
-    const sponsorsRef = database.ref('/sponsors')
-    sponsorsRef.on('value', snapshot => {
-      setSponsorsList( snapshot.val() )
     })
   },[])
   
   const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations } = eventData
-  console.log( sponsors )
-  const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
     <div className="App">
       <IdcNavbar />
       <IdcHero
         title={title}
-        abstract={ parse( abstract )}
+        abstract={abstract}
         masterGraphic={masterGraphic}
       />
-      <Container fluid>
-        <Row>
-          { (sponsors && sponsorsList) && <IdcSlider sponsors={ getSponsors(sponsors) } hasSlider={ hasSlider }/> }
-        </Row>
-      </Container>
+      <IdcSlider sponsors={ sponsors } hasSlider={ hasSlider }/>
+      <IdcSponsors sponsors={ sponsors }  type={ type }/>
       <Container>
         <Row>
           {
@@ -68,7 +57,7 @@ function App() {
           {
             eventData.videos && <IdcVideos />
           }
-          <IdcSpeakers speakers={ speakers }/>
+          <IdcSpeakers speakers={ eventData.speakers }/>
         </Row>
       </Container>
       <IdcFooter />

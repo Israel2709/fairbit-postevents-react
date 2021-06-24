@@ -1,4 +1,4 @@
-@import './assets/colors.scss';
+$main-color: #021C4E;
 
 .text-main-color{
     color:$main-color
@@ -10,5 +10,4 @@
 
 body{
     padding-top:56px;
-    overflow-x: hidden;
 }

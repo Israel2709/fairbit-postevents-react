@@ -22,7 +22,7 @@ const IdcSpeakers = (props) => {
     },[])
     return (
         <Col xs="12">
-            <h2 class="py-4 text-center">Programa / Conferencistas</h2>
+            <h2 class="py-4 text-center">Programa / Speakers</h2>
             <Row className="speakers-wrapper">
                 {
                     ( speakersList && speakers ) && Object.values( speakers ).map( speaker => <SpeakerItem speakerData = {speakersList[speaker]}/>)

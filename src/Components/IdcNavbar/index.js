@@ -23,12 +23,12 @@ const IdcNavbar = () => {
         <div>
             <Navbar color="white" light expand="md" className="d-flex justify-content-between fixed-top px-3">
                 <NavbarBrand href="/"><img src={idcLogo} alt="" /></NavbarBrand>
-                {<NavbarBrand href="/"><img src={logoDigital} alt="" /></NavbarBrand>}
+                {/*<NavbarBrand href="/"><img src={logoDigital} alt="" /></NavbarBrand>*/}
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <Link to="home" className="nav-link text-uppercase" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>HOME</Link>
+                            <Link to="home" className="nav-link" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>HOME</Link>
                         </NavItem>
                         {
                             /*<NavItem>
@@ -36,7 +36,7 @@ const IdcNavbar = () => {
                             </NavItem>*/
                         }
                         <NavItem>
-                            <Link to="presentations" className="nav-link text-uppercase" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>apresentações</Link>
+                            <Link to="presentations" className="nav-link" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>PRESENTACIONES</Link>
                         </NavItem>
                     </Nav>
                 </Collapse>
