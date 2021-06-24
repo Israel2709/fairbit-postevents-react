@@ -20,8 +20,9 @@ const IdcPresentations = (props) => {
     const [isRegistered, setIsRegistered] = useState(false)
     const { presentations, speakersList } = props
 
-    const toggle = () => {
-        !isRegistered ? setModal(!modal) : window.open(presentations[0].document)
+    const toggle = ( presentationIndex ) => {
+        console.log( presentationIndex)
+        !isRegistered ? setModal(!modal) : window.open(presentations[presentationIndex ].document)
     }
 
     const handleEmail = event => {
@@ -132,10 +133,11 @@ const IdcPresentations = (props) => {
                 <Row className="presentations-wrapper justify-content-center">
                     {
                         (presentations && speakersList) &&
-                        presentations.map(presentation => {
+                        presentations.map((presentation, index) => {
                             return <PresentationItem
                                 presentationData={presentation}
                                 speakerData={speakersList[presentation.speaker]}
+                                presentationIndex = { index }
                                 handler={toggle}
                             />
 
