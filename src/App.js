@@ -43,12 +43,12 @@ function App() {
     })
   },[])
   
-  const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations } = eventData
+  const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations,video } = eventData
   console.log( sponsors )
   const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
     <div className="App">
-      <IdcNavbar />
+      <IdcNavbar video={ video }/>
       <IdcHero
         title={title}
         abstract={ parse( abstract )}
@@ -64,10 +64,13 @@ function App() {
           {
             (presentations && speakersList) && <IdcPresentations presentations={ presentations } speakersList = {speakersList}/>
           }
-          
+        </Row>
+        <Row>
           {
-            eventData.videos && <IdcVideos />
+            eventData.video && <IdcVideos videoList = {eventData.video} speakersList={speakersList}/>
           }
+        </Row>  
+        <Row>
           <IdcSpeakers speakers={ speakers }/>
         </Row>
       </Container>
