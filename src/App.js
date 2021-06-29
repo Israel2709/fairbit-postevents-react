@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import firebase from './lib/firebase'
+import parse from 'html-react-parser'
 
 import IdcNavbar from './Components/IdcNavbar'
 import IdcHero from './Components/IdcHero'
@@ -19,8 +20,12 @@ import {
 import './App.scss';
 
 function App() {
-  const [eventData, setEventData] = useState({})
+  const [eventData, setEventData] = useState({
+    title:"",
+    abstract:""
+  })
   const [speakersList, setSpeakersList] = useState({})
+  const [sponsorsList, setSponsorsList] = useState({})
 
   useEffect( () => {
     const database = firebase.database();
@@ -35,29 +40,40 @@ function App() {
       console.log(snapshot.val())
       setSpeakersList( snapshot.val() )
     })
+    const sponsorsRef = database.ref('/sponsors')
+    sponsorsRef.on('value', snapshot => {
+      setSponsorsList( snapshot.val() )
+    })
   },[])
   
-  const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations } = eventData
+  const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations,video } = eventData
+  const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
     <div className="App">
-      <IdcNavbar />
+      <IdcNavbar video={ video }/>
       <IdcHero
         title={title}
-        abstract={abstract}
+        abstract={ parse( abstract )}
         masterGraphic={masterGraphic}
       />
-      <IdcSlider sponsors={ sponsors } hasSlider={ hasSlider }/>
-      <IdcSponsors sponsors={ sponsors }  type={ type }/>
+      <Container fluid>
+        <Row>
+          { (sponsors && sponsorsList) && <IdcSlider sponsors={ getSponsors(sponsors) } hasSlider={ hasSlider }/> }
+        </Row>
+      </Container>
       <Container>
         <Row>
           {
             (presentations && speakersList) && <IdcPresentations presentations={ presentations } speakersList = {speakersList}/>
           }
-          
+        </Row>
+        <Row>
           {
-            eventData.videos && <IdcVideos />
+            eventData.video && <IdcVideos videoList = {eventData.video} speakersList={speakersList}/>
           }
-          <IdcSpeakers speakers={ eventData.speakers }/>
+        </Row>  
+        <Row>
+          <IdcSpeakers speakers={ speakers }/>
         </Row>
       </Container>
       <IdcFooter />

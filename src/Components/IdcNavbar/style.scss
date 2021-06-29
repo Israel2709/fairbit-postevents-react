@@ -11,6 +11,7 @@ $main-color: #021C4E;
 
 .nav-link{
     color:#333;
+    cursor:pointer;
     &.active{
         border-bottom:2px solid $main-color
     }

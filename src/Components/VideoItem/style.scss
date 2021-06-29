@@ -9,7 +9,7 @@
                 margin-right: 1rem;
             }
             h2{
-                font-size:1.25rem;
+                font-size:1rem;
                 margin: 0;
             }
             h3{
@@ -19,13 +19,12 @@
         }  
     }
     .video-cover{
+            background-size: cover;
+            background-position: center;
         &:before{
             content: "";
             padding-bottom: 125%;
             width: 100%;
-            background-image: url('https://picsum.photos/id/23/600');
-            background-size: cover;
-            background-position: center;
             display: block;
         }
     }
