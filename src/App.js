@@ -22,7 +22,7 @@ import './App.scss';
 function App() {
   const [eventData, setEventData] = useState({
     title:"",
-    abstract:""
+    abstract:"",
   })
   const [speakersList, setSpeakersList] = useState({})
   const [sponsorsList, setSponsorsList] = useState({})
@@ -43,12 +43,12 @@ function App() {
     })
   },[])
   
-  const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations } = eventData
-  console.log( sponsors )
+  const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations, video } = eventData
+
   const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
     <div className="App">
-      <IdcNavbar />
+      <IdcNavbar type={ type } presentations={presentations} video={video}/>
       <IdcHero
         title={title}
         abstract={ parse( abstract )}
@@ -61,10 +61,13 @@ function App() {
           {
             (presentations && speakersList) && <IdcPresentations presentations={ presentations } speakersList = {speakersList}/>
           }
-          
+        </Row>
+        <Row> 
           {
-            eventData.videos && <IdcVideos />
+            video && speakersList && <IdcVideos video={video} speakersList={speakersList}/>
           }
+        </Row>
+        <Row>
           <IdcSpeakers speakers={ speakers }/>
         </Row>
       </Container>
