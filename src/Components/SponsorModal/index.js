@@ -95,7 +95,7 @@ const SponsorModal = ( props ) => {
                                 </div>
                                 <input type="text"
                                     className="form-control"
-                                    placeholder="martín@exemplo.com"
+                                    placeholder="martín@ejemplo.com"
                                     {...register("email", {
                                         required: "Este campo es requerido.",
                                     })} />

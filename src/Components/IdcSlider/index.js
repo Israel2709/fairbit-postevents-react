@@ -114,7 +114,7 @@ class IdcSlider extends Component {
                           <CardBody>
                             <Button className="mx-auto d-block mb-3" type="button" onClick={() => {
                               this.setState({ sponsorName: sponsor.name, modal:true })
-                            }}>Você quer ser contatado?</Button>
+                            }}>Ser contactado</Button>
                             {sponsor && <CardTitle tag="h3" className="text-center text-uppercase mb-3">
                               {sponsor.name}
                             </CardTitle>}

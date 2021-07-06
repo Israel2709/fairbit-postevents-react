@@ -111,7 +111,7 @@ const IdcPresentations = (props) => {
                                         <div className="input-group-prepend ">
                                             <div className="input-group-text bg-main-color text-white">Correo:</div>
                                         </div>
-                                        <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="martín@exemplo.com" name="email" onChange={handleUserData} />
+                                        <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="martín@ejemplo.com" name="email" onChange={handleUserData} />
                                     </div>
                                     <div className="input-group mb-2">
                                         <div className="input-group-prepend">
