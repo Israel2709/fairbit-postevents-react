@@ -76,14 +76,13 @@ const IdcPresentations = (props) => {
                     {
                         isRegistered ? (
                             <div className="alert alert-success text-center" role="alert">
-                                <h1>Obrigado, seu registro foi confirmado com sucesso!</h1>
+                                <h1>¡Gracias, su registro ha sido confirmado con éxito!</h1>
                             </div>
                         ) : (
                             <>
-                                <p className="text-center ">Digite seu e-mail para baixar as apresentações e consultar mais informações sobre o evento.
-                                    Digite o mesmo e-mail com o qual você se registrou (domínio comercial)
+                                <p className="text-center ">Recuerde que este es un evento virtual y sólo podrá descargar todo el contenido si recibió invitación por correo electrónico.
                                 </p>
-                                <p className="text-uppercase text-center m-0 mb-3"><b>DIGITE O MESMO E-MAIL COM O QUAL VOCÊ FOI CONVIDADO</b></p>
+                                <p className="text-uppercase text-center m-0 mb-3"><b>INGRESE EL CORREO AL QUE FUE INVITADO</b></p>
                                 <form action="" className="w-75 d-block mx-auto">
                                     <div className="form-group">
                                         <input type="text" className="form-control border-0 border-bottom rounded-0 border-dark" placeholder="Correio eletrônico" onChange={handleEmail} />
@@ -91,37 +90,37 @@ const IdcPresentations = (props) => {
                                             Ingrese un correo válido
                                         </div>}
                                     </div>
-                                    <Button type="button" color="outline-dark" className="d-block mx-auto my-3 rounded-pill px-5" onClick={submitEmail}>Entrar</Button>
+                                    <Button type="button" color="outline-dark" className="d-block mx-auto my-3 rounded-pill px-5" onClick={submitEmail}>Ingrese</Button>
                                 </form>
-                                <p className="text-center ">Você não recebeu um convite? Insira seus dados para baixar o conteúdo de seu interesse</p>
-                                <p className="text-center"><b className="text-uppercase">DIGITE SEU E-MAIL (domínio comercial)</b></p>
+                                <p className="text-center ">¿No recibió una invitación? Ingrese sus datos para descargar contenido de interés</p>
+                                <p className="text-center"><b className="text-uppercase">INGRESE SU CORREO EMPRESARIAL</b></p>
                                 <form action="" className="w-75 d-block mx-auto">
                                     <div className="input-group mb-2">
                                         <div className="input-group-prepend">
-                                            <div className="input-group-text bg-main-color text-white">Nome:</div>
+                                            <div className="input-group-text bg-main-color text-white">Nombre (s):</div>
                                         </div>
                                         <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Martín" name="name" onChange={handleUserData} />
                                     </div>
                                     <div className="input-group mb-2">
                                         <div className="input-group-prepend">
-                                            <div className="input-group-text bg-main-color text-white">Sobrenome:</div>
+                                            <div className="input-group-text bg-main-color text-white">Apellido (s):</div>
                                         </div>
                                         <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Jiménez" name="lastName" onChange={handleUserData} />
                                     </div>
                                     <div className="input-group mb-2">
                                         <div className="input-group-prepend ">
-                                            <div className="input-group-text bg-main-color text-white">Correio eletrônico:</div>
+                                            <div className="input-group-text bg-main-color text-white">Correo:</div>
                                         </div>
                                         <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="martín@exemplo.com" name="email" onChange={handleUserData} />
                                     </div>
                                     <div className="input-group mb-2">
                                         <div className="input-group-prepend">
-                                            <div className="input-group-text  bg-main-color text-white">O negócio:</div>
+                                            <div className="input-group-text  bg-main-color text-white">Empresa:</div>
                                         </div>
                                         <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="MartinEnterprise" name="job" onChange={handleUserData} />
                                     </div>
 
-                                    <Button type="button" color="outline-dark" className="d-block mx-auto my-3 rounded-pill px-5" onClick={submitData}>Registrarse</Button>
+                                    <Button type="button" color="outline-dark" className="d-block mx-auto my-3 rounded-pill px-5" onClick={submitData}>Registrar</Button>
                                 </form>
                             </>
                         )
@@ -129,7 +128,7 @@ const IdcPresentations = (props) => {
                 </ModalBody>
             </Modal>
             <Col xs="12">
-                <h2 id="presentations" className="text-center my-3">Apresentações</h2>
+                <h2 id="presentations" className="text-center my-3">Presentaciones</h2>
                 <Row className="presentations-wrapper justify-content-center">
                     {
                         (presentations && speakersList) &&

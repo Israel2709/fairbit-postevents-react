@@ -37,7 +37,7 @@ const IdcNavbar = ( props ) => {
                             </NavItem>
                         }
                         <NavItem>
-                            <Link to="presentations" className="nav-link text-uppercase" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>apresentações</Link>
+                            <Link to="presentations" className="nav-link text-uppercase" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>presentaciones</Link>
                         </NavItem>
                     </Nav>
                 </Collapse>

@@ -29,7 +29,7 @@ function App() {
 
   useEffect( () => {
     const database = firebase.database();
-    const eventsRef = database.ref('/events/dynamicBrazil')
+    const eventsRef = database.ref('/events/vmware')
     eventsRef.on('value', snapshot => {
       setEventData( snapshot.val() )
     })

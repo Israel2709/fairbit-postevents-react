@@ -20,8 +20,8 @@ const PresentationItem = ( props ) => {
                 <div className="card-cover" style={{ backgroundImage: `url(${cover})`}}></div>
                 <h3 className="card-title p-3">{ title }</h3>
                 <div className="card-footer bg-white d-flex">
-                    <a onClick={ () => { handler(presentationIndex)} } className="text-primary">baixar</a>
-                    <a onClick={ () => { handler(presentationIndex)} } className="text-primary">VER APRESENTAÇÃO</a>
+                    <a onClick={ () => { handler(presentationIndex)} } className="text-primary">DESCARGAR</a>
+                    <a onClick={ () => { handler(presentationIndex)} } className="text-primary">VER PRESENTACIÓN</a>
                 </div>
             </div>
         </Col>

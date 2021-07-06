@@ -28,7 +28,7 @@ const SponsorModal = ( props ) => {
     return (
         <Modal isOpen={modal} toggle={toggle}>
             <div className="modal-header border-0">
-                <h2 className="modal-title text-uppercase text-center mx-auto">Entre nos campos do seguinte formulário</h2>
+                <h2 className="modal-title text-uppercase text-center mx-auto">INGRESE LOS CAMPOS DEL SIGUIENTE FORMULARIO</h2>
                 <button type="button" className="close bg-transparent border-0" data-dismiss="modal" aria-label="Close" onClick={toggle}>
                     <span aria-hidden="true">×</span>
                 </button>
@@ -39,7 +39,7 @@ const SponsorModal = ( props ) => {
                         <form onSubmit={handleSubmit(onSubmit)} className="w-100 d-block mx-auto">
                             <div className="input-group mb-2">
                                 <div className="input-group-prepend">
-                                    <div className="input-group-text bg-main-color text-white">Nome completo:</div>
+                                    <div className="input-group-text bg-main-color text-white">Nombre Completo:</div>
                                 </div>
                                 <input
                                     type="text"
@@ -91,7 +91,7 @@ const SponsorModal = ( props ) => {
                             />
                             <div className="input-group mb-2">
                                 <div className="input-group-prepend ">
-                                    <div className="input-group-text bg-main-color text-white">Correio electrônico :</div>
+                                    <div className="input-group-text bg-main-color text-white">Correo:</div>
                                 </div>
                                 <input type="text"
                                     className="form-control"
@@ -114,7 +114,7 @@ const SponsorModal = ( props ) => {
                             />
                             <div className="input-group mb-2">
                                 <div className="input-group-prepend ">
-                                    <div className="input-group-text bg-main-color text-white">Patrocinador :</div>
+                                    <div className="input-group-text bg-main-color text-white">Patrocinador:</div>
                                 </div>
                                 <input type="text" className="form-control" id="" placeholder="" value={ sponsorName.toUpperCase() } name="text" readonly disabled />
                             </div>
@@ -122,7 +122,7 @@ const SponsorModal = ( props ) => {
                         </form>
                     ) : (
                         <div className="alert alert-success text-center" role="alert">
-                            <h1>Obrigado, sua pergunta foi confirmada com sucesso!!</h1>
+                            <h1>¡!Gracias, tu pregunta fue confirmada con éxito!</h1>
                         </div>
                     )
                 }
