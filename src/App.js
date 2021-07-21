@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import useWindowSize from './Hooks/useWindowSize'
 import firebase from './lib/firebase'
 import parse from 'html-react-parser'
 
@@ -27,9 +28,12 @@ function App() {
   const [speakersList, setSpeakersList] = useState({})
   const [sponsorsList, setSponsorsList] = useState({})
 
+  const screenWidth = useWindowSize().width
+  console.log( screenWidth )
+
   useEffect( () => {
     const database = firebase.database();
-    const eventsRef = database.ref('/events/vmware')
+    const eventsRef = database.ref('/events/cumbreGobierno')
     eventsRef.on('value', snapshot => {
       setEventData( snapshot.val() )
     })
@@ -43,7 +47,7 @@ function App() {
     })
   },[])
   
-  const { title, abstract, masterGraphic, sponsors, hasSlider, type, speakers, presentations,video } = eventData
+  const { title, abstract, heroImg, heroImgResponsive, sponsors, hasSlider, type, speakers, presentations,video } = eventData
   console.log( sponsors )
   const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
@@ -52,7 +56,7 @@ function App() {
       <IdcHero
         title={title}
         abstract={ parse( abstract )}
-        masterGraphic={masterGraphic}
+        masterGraphic={ screenWidth < 1366 ? heroImgResponsive : heroImg }
       />
       <Container fluid>
         <Row>
