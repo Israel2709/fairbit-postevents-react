@@ -54,7 +54,7 @@ class IdcSlider extends Component {
         handler={this.setModal}
         sponsorName={this.state.sponsorName}
       />
-      <div class="col-12">
+      <div className="col-12">
         {
           (hasSlider && sponsors) && (
             <>
@@ -67,9 +67,9 @@ class IdcSlider extends Component {
                 className="control"
                 pauseOnHover= {true}
               >
-                {sponsors.map(sponsor => {
+                {sponsors.map((sponsor, index) => {
                   return (
-                    <div className="icon-wrapper">
+                    <div key={index} className="icon-wrapper">
                       <div className="card">
                         <div className="card-body d-flex justify-content-center align-items-center"><img src={sponsor ? sponsor.ico : ""} alt="" /></div>
                       </div>
@@ -88,24 +88,15 @@ class IdcSlider extends Component {
                 autoplaySpeed={5000}
                 pauseOnHover= {true}
               >
-                {sponsors.map(sponsor => {
+                {sponsors.map((sponsor,index) => {
                   return (
                     <>
-                    <Row>
+                    <Row key={index}>
                       <Col xs="12" md="6">
-                        {/*<h2 className="text-center">&nbsp;</h2>*/}
                         <Card className="sponsor">
                           <CardBody className="d-flex justify-content-center align-items-center">
                             {sponsor && <img src={sponsor.logo} alt="" />}
                           </CardBody>
-                          {/*
-                            <div class="links-wrapper">
-                                <a href="">Link 1</a>
-                                <a href="">Link 2</a>
-                                <a href="">Link 3</a>
-                            </div>
-                        */}
-
                         </Card>
                       </Col>
                       <Col xs="12" md="6" className="pr-3">
@@ -121,8 +112,8 @@ class IdcSlider extends Component {
                             {sponsor && <CardText className="text-center mb-3">{sponsor.boilerplate}</CardText>}
                             <div className="social-wrapper d-flex justify-content-center">
                               {
-                                sponsor && Object.keys(sponsor.links).map(link => {
-                                  return <a href={sponsor.links[link]} target="_blank" className={iconClasses[link]}></a>
+                                sponsor && sponsor.links && Object.keys(sponsor.links).map((link,index) => {
+                                  return <a key={index} href={sponsor.links[link]} target="_blank" className={iconClasses[link]}></a>
                                 })
                               }
                             </div>

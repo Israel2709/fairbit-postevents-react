@@ -15,7 +15,7 @@ const IdcHero = ( props ) => {
                 <Row className="h-100">
                     <Col xs='12' md={{ size:6, offset:6 }} className="d-flex flex-column justify-content-center text-white">
                         <h1>{ title }</h1>
-                        <p>{ abstract }</p>
+                        <div>{ abstract }</div>
                     </Col>
                 </Row>
             </Container>

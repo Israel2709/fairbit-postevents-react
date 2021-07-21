@@ -167,19 +167,10 @@ const IdcSponsors = (props) => {
             <Container className="mt-5">
                 <Row>
                     <Col xs="12" md="6" className="mb-3">
-                        {/*<h2 className="text-center">&nbsp;</h2>*/}
                         <Card>
                             <CardBody className="d-flex justify-content-center align-items-center">
                                 { sponsors[0] && <img src={ sponsors[0].logo } alt="" /> }
                             </CardBody>
-                            {/*
-                            <div class="links-wrapper">
-                                <a href="">Link 1</a>
-                                <a href="">Link 2</a>
-                                <a href="">Link 3</a>
-                            </div>
-                        */}
-
                         </Card>
                     </Col>
                     <Col xs="12" md="6">

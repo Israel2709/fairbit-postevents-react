@@ -9,16 +9,16 @@ import IdcSlider from './Components/IdcSlider'
 import IdcPresentations from './Components/IdcPresentations'
 import IdcVideos from './Components/IdcVideos'
 import IdcSpeakers from './Components/IdcSpeakers'
+import IdcPartners from './Components/IdcPartners'
 import IdcFooter from './Components/IdcFooter'
-import IdcSponsors from './Components/IdcSponsors'
 
 import {
   Container,
-  Row,
-  Col
+  Row
 } from 'reactstrap'
 
 import './App.scss';
+
 
 function App() {
   const [eventData, setEventData] = useState({
@@ -47,12 +47,24 @@ function App() {
     })
   },[])
   
-  const { title, abstract, heroImg, heroImgResponsive, sponsors, hasSlider, type, speakers, presentations,video } = eventData
+  const { 
+    title, 
+    abstract, 
+    heroImg, 
+    heroImgResponsive, 
+    sponsors, 
+    hasSlider, 
+    type, 
+    speakers, 
+    presentations,
+    video,
+    partners
+  } = eventData
   console.log( sponsors )
   const getSponsors = ( sponsors ) => sponsors ? sponsors.map( sponsor => sponsorsList[sponsor]) : []
   return (
     <div className="App">
-      <IdcNavbar video={ video }/>
+      <IdcNavbar video={ video } presentations={presentations}/>
       <IdcHero
         title={title}
         abstract={ parse( abstract )}
@@ -64,6 +76,11 @@ function App() {
         </Row>
       </Container>
       <Container>
+        <Row>
+          {
+            (partners && sponsorsList) && <IdcPartners  partners={partners } sponsorsList = {sponsorsList}/>
+          }
+        </Row>
         <Row>
           {
             (presentations && speakersList) && <IdcPresentations presentations={ presentations } speakersList = {speakersList}/>

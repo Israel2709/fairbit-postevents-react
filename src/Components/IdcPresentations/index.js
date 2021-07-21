@@ -86,7 +86,7 @@ const IdcPresentations = (props) => {
                                 <form action="" className="w-75 d-block mx-auto">
                                     <div className="form-group">
                                         <input type="text" className="form-control border-0 border-bottom rounded-0 border-dark" placeholder="Correio eletrônico" onChange={handleEmail} />
-                                        {emailError && <div class="alert alert-danger" role="alert">
+                                        {emailError && <div className="alert alert-danger" role="alert">
                                             Ingrese un correo válido
                                         </div>}
                                     </div>

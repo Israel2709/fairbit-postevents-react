@@ -16,7 +16,7 @@ import idcLogo from '../../assets/IDC_TRANSTELCO_PostEvento.png'
 import logoDigital from '../../assets/IDC_TRANSTELCO_PostEvento_TransLogo.png'
 
 const IdcNavbar = ( props ) => {
-    const { video } = props
+    const { video, presentations } = props
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
@@ -36,9 +36,12 @@ const IdcNavbar = ( props ) => {
                             <Link to="videos" className="nav-link text-uppercase" spy={true} smooth={true} offset={50} duration={500} delay={0} offset={-66}>VIDEOS</Link>
                             </NavItem>
                         }
-                        <NavItem>
-                            <Link to="presentations" className="nav-link text-uppercase" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>presentaciones</Link>
-                        </NavItem>
+                        {
+                            presentations && <NavItem>
+                                <Link to="presentations" className="nav-link text-uppercase" spy={true} smooth={true} offset={50} duration={200} delay={0} offset={-66}>presentaciones</Link>
+                            </NavItem>
+                        }
+                        
                     </Nav>
                 </Collapse>
             </Navbar>
