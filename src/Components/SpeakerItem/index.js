@@ -19,7 +19,6 @@ const SpeakerItem = ( props ) => {
                         <a href="" className="fab fa-instagram-square mx-2"></a>
                     </div>*/
                 }
-                
             </div>
         </Col>
     );
