@@ -14,7 +14,8 @@ import IdcFooter from './Components/IdcFooter'
 
 import {
   Container,
-  Row
+  Row,
+  Col
 } from 'reactstrap'
 
 import './App.scss';
@@ -73,6 +74,15 @@ function App() {
       <Container fluid>
         <Row>
           { (sponsors && sponsorsList) && <IdcSlider sponsors={ getSponsors(sponsors) } hasSlider={ hasSlider }/> }
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col xs="12">
+            <div className="d-flex justify-content-center mt-5">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/ncIAHRDkW_c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </Col>
         </Row>
       </Container>
       <Container>
